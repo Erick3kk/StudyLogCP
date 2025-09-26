@@ -1,15 +1,27 @@
-import { Link, Outlet } from "react-router-dom";
+import type { StudySession } from "../types/study";
 
-export function Layout() {
+interface StudyCardProps {
+  study: StudySession;
+}
+
+export function StudyCard({ study }: StudyCardProps) {
   return (
-    <div className="min-h-screen bg-gray-200">
-      <nav className="bg-white shadow-md p-4">
-        <div className="max-w-md mx-auto flex justify-center items-center gap-6">
-          <Link to="/" className="text-green-700 hover:text-green-800 font-semibold text-lg transition-colors duration-200">
-            Home
-          </Link>
-          <Link to="/add" className="text-green-700 hover:text-green-800 font-semibold text-lg transition-colors duration-200">
-            Novo estudo
-          </Link>
-        </div>
-    </nav>
+    <div className="bg-white rounded-lg shadow-md p-4 w-full max-w-md mx-auto border border-gray-300 hover:shadow-lg transition-shadow duration-200">
+      <div className="mb-3 flex justify-between items-center">
+        <h2 className="text-xl font-semibold text-green-700">
+          {study.subject}
+        </h2>
+        <p className="text-gray-500 text-sm">Data: {study.date}</p>
+      </div>
+
+      <div className="text-gray-600">
+        <p className="mb-2">
+          <strong>Duração:</strong> {study.minutes} minutos
+        </p>
+        <p>
+          <strong>Dificuldade:</strong> {study.Dificuldade}
+        </p>
+      </div>
+    </div>
+  );
+}
