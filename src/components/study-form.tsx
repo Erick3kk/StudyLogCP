@@ -9,7 +9,7 @@ interface StudyFormProps {
 export function StudyForm({ onAdd }: StudyFormProps) {
   const [subject, setSubject] = useState("");
   const [minutes, setMinutes] = useState(0);
-  const [dificuldade, setDificuldade] = useState<Dificuldade>(1);
+  const [dificuldade, setDificuldade] = useState<Dificuldade>(1); 
   const [date, setDate] = useState("");
 
   function handleSubmit(event: React.FormEvent): void {
@@ -19,7 +19,7 @@ export function StudyForm({ onAdd }: StudyFormProps) {
       id: crypto.randomUUID(),
       subject,
       minutes,
-      Dificuldade,
+      Dificuldade: dificuldade, 
       date,
     };
 
